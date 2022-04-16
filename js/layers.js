@@ -1,5 +1,5 @@
-addLayer("b", {
-    name: "Basic Ads", // This is optional, only used in a few places, If absent it just uses the layer id.
+addLayer("M", {
+    name: "Pizzaria", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "B", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
@@ -8,21 +8,10 @@ addLayer("b", {
     }},
     color: "#ff4d4d",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "Ad coins", // Name of prestige currency
-    buyables: {
-        12: {
-            cost(x) { return new Decimal(2).mul(2) },
-            display() { return "Pass out paper ads" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
-            buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-        },
-    },
+    resource: "Tokens", // Name of prestige currency
      upgrades: {
         11: {
-            title: "Sticky notes",
+            title: "Tables",
             description: "Double your point gain.",
             cost: new Decimal(1),
         },
@@ -41,7 +30,7 @@ addLayer("b", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "b", description: "B: Reset for Ad coins", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "m", description: "M: Reset for Tokens", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
 })

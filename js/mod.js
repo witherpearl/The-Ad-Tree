@@ -1,6 +1,6 @@
 let modInfo = {
-	name: "The Ad Tree",
-	id: "the-ad-tree",
+	name: "The Fnaf Tree",
+	id: "the-fnaf-tree",
 	author: "witherpearl",
 	pointsName: "dollars",
 	modFiles: ["layers.js", "tree.js"],
@@ -42,9 +42,7 @@ function canGenPoints(){
 function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
-
-	let gain = new Decimal(1)
-	if (hasUpgrade('M', 11)) gain = gain.times(2)
+		if (hasUpgrade('M', 11)) gain = gain.times(2)
 	return gain
 }
 

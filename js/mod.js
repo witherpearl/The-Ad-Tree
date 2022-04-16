@@ -1,27 +1,26 @@
 let modInfo = {
-	name: "The Fnaf Tree",
-	id: "the-fnaf-tree",
-	author: "witherpearl",
-	pointsName: "dollars",
+	name: "The ??? Tree",
+	id: "mymod",
+	author: "nobody",
+	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 0,  // In hours //Make 24 hours
+	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
+	num: "0.0",
 	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1</h3><br>
+	<h3>v0.0</h3><br>
 		- Added things.<br>
-		- Added stuff.<br>
-		- Changed the name.`
+		- Added stuff.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -42,7 +41,7 @@ function canGenPoints(){
 function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
-		if (hasUpgrade('M', 11)) gain = gain.times(2)
+
 	let gain = new Decimal(1)
 	return gain
 }

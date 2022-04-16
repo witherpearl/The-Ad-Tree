@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The ??? Tree",
+	name: "The Fnaf Tree",
 	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
+	author: "witherpearl",
+	pointsName: "dollars",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
+	num: "0.1",
 	name: "Literally nothing",
 }
 
@@ -41,7 +41,7 @@ function canGenPoints(){
 function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
-
+		if (hasUpgrade('p', 11)) gain = gain.times(2)
 	let gain = new Decimal(1)
 	return gain
 }

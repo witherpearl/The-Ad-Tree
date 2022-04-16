@@ -1,4 +1,4 @@
-# The-Ad-Tree
+# The-Fnaf-Tree
 
 An incremental game based on The Prestige Tree.
 

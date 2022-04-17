@@ -15,7 +15,6 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (locationscount > 0) mult = round(mult.add(.20.times(locationscount))) //edited
         return mult
     },
     upgrades: {
@@ -75,7 +74,6 @@ addLayer("f", {
     gainExp() {                             // Returns the exponent to your gain of the prestige resource.
         return new Decimal(1)
     },
-    var: locationscount = new Decimal(),  //edited
     layerShown() {
         if (baseAmount(800)) {
             if (Decimal >= 1) {

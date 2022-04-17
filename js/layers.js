@@ -15,6 +15,7 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (locationscount > 0) mult = round(mult.add(.20.times(locationscount))) //edited
         return mult
     },
     upgrades: {
@@ -54,7 +55,7 @@ addLayer("p", {
 addLayer("f", {
     startData() { return {                  // startData is a function that returns default data for a layer. 
         unlocked: true,                     // You can add more variables here to add them to your layer.
-        points: new Decimal(1000),             // "points" is the internal name for the main resource of the layer.
+        points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
     }},
     color: "#4BDC13",                       // The color for this layer, which affects many elements.
     resource: "locations",            // The name of this layer's main prestige resource.
@@ -62,11 +63,11 @@ addLayer("f", {
     baseResource: "points",                 // The name of the resource your prestige gain is based on.
     baseAmount() { return player.points },  // A function to return the current amount of baseResource.
 
-    requires: new Decimal(10),              // The amount of the base needed to  gain 1 of the prestige currency.
+    requires: new Decimal(1000),              // The amount of the base needed to  gain 1 of the prestige currency.
                                             // Also the amount required to unlock the layer.
 
-    type: "normal",                         // Determines the formula used for calculating prestige currency.
-    exponent: 0.5,                          // "normal" prestige gain is (currency^exponent).
+    type: "static",                         // Determines the formula used for calculating prestige currency.
+    exponent: 0.75,                          // "normal" prestige gain is (currency^exponent).
 
     gainMult() {                            // Returns your multiplier to your gain of the prestige resource.
         return new Decimal(1)               // Factor in any bonuses multiplying gain here.
@@ -74,8 +75,18 @@ addLayer("f", {
     gainExp() {                             // Returns the exponent to your gain of the prestige resource.
         return new Decimal(1)
     },
-
-    layerShown() { return true },          // Returns a bool for if this layer's node should be visible in the tree.
+    var: locationscount = new Decimal(),  //edited
+    layerShown() {
+        if (baseAmount(800)) {
+            if (Decimal >= 1) {
+                return true
+            } else {
+                return true
+            }
+        } else {
+            return false
+        }
+    },         // Returns a bool for if this layer's node should be visible in the tree.
 
     upgrades: {
         // Look in the upgrades docs to see what goes here!

@@ -25,12 +25,21 @@ addLayer("p", {
         },
         12: {
             title: "Ghost Kitchen",
-            description: "Double your point gain.",
-            cost: new Decimal(1),
+            description: "Increase dollars based on tokens.",
+            cost: new Decimal(5),
             effect() {
-                return player[this.layer].points.add(1).pow(0.5)
+                if (hasUpgrade('p',13)) {
+                   return player[this.layer].points.add(1).pow(0.55) 
+                }  else {
+                    return player[this.layer].points.add(1).pow(0.5)
+                }
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        13: {
+            title: "Better Cut",
+            description: "Get more from the ghost kitchen.",
+            cost: new Decimal(20),
         },
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

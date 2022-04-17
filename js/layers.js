@@ -23,6 +23,15 @@ addLayer("p", {
             description: "Double your point gain.",
             cost: new Decimal(1),
         },
+        12: {
+            title: "Ghost Kitchen",
+            description: "Double your point gain.",
+            cost: new Decimal(1),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)

@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The Fnaf Tree",
+	name: "The Spirit Tree",
 	id: "mymod",
 	author: "witherpearl",
-	pointsName: "dollars",
+	pointsName: "Soul Essence",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -14,13 +14,13 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "0.1",
-	name: "Literally nothing",
+	name: "Base two nodes",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
+	<h3>v0.1</h3><br>
 		- Added things.<br>
-		- Added stuff.`
+		- Changed stuff.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 

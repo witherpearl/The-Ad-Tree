@@ -70,7 +70,7 @@ addLayer("f", {
     baseResource: "Spirit Orbs",                 // The name of the resource your prestige gain is based on.
     baseAmount() { return player.points },  // A function to return the current amount of baseResource.
 
-    requires: player.points(1000),              // The amount of the base needed to  gain 1 of the prestige currency.
+    requires: new Decimal(1000),              // The amount of the base needed to  gain 1 of the prestige currency.
                                             // Also the amount required to unlock the layer.
 
     type: "static",                         // Determines the formula used for calculating prestige currency.
